@@ -1,0 +1,67 @@
+{% extends 'comunes/layout.html' %}
+{% load static %}
+{% block head %}
+
+    <link rel="stylesheet" href="{% static 'registrados/estilo.css' %}">
+
+{% endblock %}
+
+{% block titulo %}
+    Update all
+{% endblock %}
+{% block body %}
+    <div class="ghost"></div>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="box-content">
+            <div class="boxf">
+                {{ form.email.label }}
+                {{ form.email }}
+            </div>
+            <div class="boxf">
+                {{ form.name.label }}
+                {{ form.name }}
+            </div>
+            <div class="boxf">
+                {{ form.last_name.label }}
+                {{ form.last_name }}
+            </div>
+            <div class="boxf">
+                {{ form.country.label }}
+                {{ form.country }}
+            </div>
+            <div class="boxf">
+                {{ form.gender.label }}
+                {{ form.gender }}
+            </div>
+            <div class="boxf">
+                {{ form.date_birth.label }}
+                {{ form.date_birth }}
+            </div>
+            <div class="boxf">
+                {{ form.photo.label }}
+                <label for="id_photo">
+                <div class="buttonn">
+
+                        <div class="face1">
+                            select image
+                        </div>
+                    <div class="face2">
+                        <i class="bi bi-cloud-arrow-up-fill"></i>
+                    </div>
+
+                </div></label>
+                {{ form.photo }}
+
+            </div>
+            <div class="updbox">
+                <button type="submit" class="updbutton"><span>Update</span></button>
+
+            </div>
+        </div>
+
+    </form>
+    {% lorem 40 %}
+    <script src="{% static 'registrados/updall.js' %}"></script>
+{% endblock %}
+{#fields=('email','name','last_name','country','gender','date_birth','photo')#}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> {% block titulo %}
+
+    {% endblock %}</title>
+
+    {% block head %}
+
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'comun/estilo.css' %}">
+    <link rel="shortcut icon" href="{% static 'comun/iconofav.png' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+{#    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">#}
+</head>
+<body>
+
+<div class="cabeza" id="headbar">
+    <div class="titl-menu">
+        <div class="menudesp">
+            <label for="btn-menu" class="bi bi-list lab-menu"></label></div>
+        <p class="titulo"><a href="{% url 'indic_app:index' %}" class="exordium">Exordium</a></p>
+
+    </div>
+    {#------------inicio desplegable--------------#}
+    <input type="checkbox" id="btn-menu">
+    <div class="contenedor-menu">
+        <div class="cont-menu">
+            <ul class="lista-desp">
+                <li><a href="{% url 'indic_app:index' %}#" class="link2">Home</a></li>
+                <li><a href="#" class="link2">Blog</a></li>
+                <li><a href="{% url 'indic_app:about' %}" class="link2">About Us</a></li>
+                <li><a href="#" class="link2">Apps</a></li>
+                <li><a href="{% url 'indic_app:contacto' %}" class="link2">Contact</a></li>
+                <li><a href="#" class="link2">Github</a></li>
+            </ul>
+            <label for="btn-menu" class="bi bi-x-lg"></label>
+        </div>
+    </div>
+    {#------------fin desplegable--------------#}
+    <ul class="short-list">
+        {% if request.user.is_authenticated %}
+            <li><label for="btn-list" class="li-button account">Account&nbsp&nbsp<i
+                    class="bi bi-caret-down-fill"></i></label>
+                <input type="checkbox" id="btn-list">
+                <ul class="micro-list">
+                    <li><a href="{% url 'usuarios_app:account' %}" class="desp">User Panel&nbsp&nbsp<i
+                            class="bi bi-person-circle"></i></a></li>
+                    <li><a href="{% url 'usuarios_app:logoutuser' %}" class="desp logred">Logout&nbsp&nbsp<i
+                            class="bi bi-box-arrow-right"></i></a></li>
+                </ul>
+            </li>
+        {% elif not request.user.is_authenticated %}
+            <li><a href="{% url 'usuarios_app:login' %}" class="li-button">Login&nbsp&nbsp<i
+                    class="bi bi-box-arrow-in-right"></i></a></li>
+            <li><a href="{% url 'usuarios_app:register' %}" class="li-button">Register&nbsp&nbsp<i
+                    class="bi bi-person-plus-fill"></i></a></li>
+        {% endif %}
+
+    </ul>
+
+</div>
+
+{% block body %}
+
+{% endblock %}
+
+<div class="piepagina">
+
+    <div class="logo">
+        <img src="{% static 'indic/logoexordium.svg' %}" alt="" class="imgpeq">
+    </div>
+    <div class="divcont">
+        <div class="contact">
+            <h3>
+                Let's Comunicate
+            </h3>
+            <p style="margin-bottom: 16px;">
+                All change starts with a conversation
+            </p>
+            <a href="{% url 'indic_app:contacto' %}" class="contacbut">
+                Contact
+            </a>
+        </div>
+    </div>
+    <div class="redes">
+        <h4 class="socialtitle">Follow Us</h4>
+        <div class="iconosoc"><i class="bi bi-facebook fbk"></i></div>
+        <div class="iconosoc"><i class="bi bi-github gith"></i></div>
+        <div class="iconosoc"><i class="bi bi-twitter twtt"></i></div>
+        <div class="iconosoc"><i class="bi bi-linkedin lnk"></i></div>
+    </div>
+</div>
+<script src="{% static 'comun/javas.js' %}"></script>
+</body>
+</html>

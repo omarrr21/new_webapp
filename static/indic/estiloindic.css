@@ -1,0 +1,300 @@
+@font-face {
+    src: url('matrish.otf');
+    font-family: firma;
+}
+@font-face {
+    src: url("opheline_display.ttf");
+    font-family: titulo_about;
+}
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
+
+/*------------------inicio fondo-------------------*/
+.fondo {
+    display: flex;
+    margin-top: 0;
+    background-image: url("fondo2.jpg");
+    background-size: 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    /*line-height: 80%;*/
+
+}
+.mensaje-opt{
+    /*display: flex;*/
+    position: relative;
+    height: 200px;
+    margin-left: 70px;
+    padding: 4px;
+    top: 65px;
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+
+}
+
+
+/*------------------fin fondo-------------------*/
+/*------------------inicio menu index-------------------*/
+
+.index_menu{
+    display: flex;
+    flex-wrap: wrap;
+    /*height: 200px;*/
+    width: 100%;
+    padding: 0 50px;
+    margin-top: auto;
+    margin-bottom: 10vh;
+    /*background-color: green;*/
+    justify-content: space-around;
+}
+.index_menu_option{
+    /*width: 130px;*/
+    /*height: 130px;*/
+    background-color: rgba(168, 168, 168, 0.6);
+    border-radius: 10px;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    /*margin: auto 0;*/
+    /*justify-items: center;*/
+    text-align: center;
+}
+.index_menu_icono{
+    /*display: flex;*/
+    /*width: 108px;*/
+    font-size: 48px;
+    /*font-weight: bold;*/
+
+    margin: 0 auto;
+    /*justify-self: center;*/
+}
+.index_link{
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+/*------------------fin menu index-------------------*/
+
+
+
+/*------------------inicio about us-------------*/
+.contenedor {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    background-color: white;
+    margin: 50px 0 0 0;
+}
+
+.logotipo {
+    display: flex;
+    flex: 1;
+    min-width: 520px;
+    height: calc(100vh - 50px);
+    align-items: center;
+    justify-content: center;
+
+}
+
+.logo {
+    height: 96%;
+    max-width: 100%;
+}
+
+.texto {
+    display: flex;
+    flex: 1;
+    min-width: 520px;
+    height: calc(100vh - 50px);
+    background-color: black;
+    flex-wrap: wrap;
+    /*align-content: center;*/
+}
+.titulo-about{
+    font-family: 'titulo_about', serif;
+    font-size: 48px;
+    justify-self: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 120px;
+
+}
+.cuerpo-about{
+    font-family: 'Playfair Display SC', serif;
+    margin-right: 40px;
+    margin-left: 40px;
+    font-size: 24px;
+}
+.firma-about{
+    font-family: 'firma', sans-serif;
+    font-size: 48px;
+}
+.firma{
+    margin-left: auto;
+    margin-right: 40px;
+}
+/*------------------fin about us-------------*/
+/*------------------inicio contact-------------*/
+.cuadrobg{
+
+    display: flex;
+    height: 75vh;
+    width: 80vw;
+    margin: 10vh auto auto 15vh;
+    /*background-color: blue;*/
+}
+.divform{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 75%;
+    /*background-color: green;*/
+    padding-right: 30%;
+    color: yellow;
+    flex-wrap: wrap;
+
+
+}
+
+.tit-volt{
+    text-align: center;
+    display: flex;
+    position: relative;
+    transform: rotate(90deg);
+    transform-origin: left top 0;
+    /*top: -37px;*/
+    left: -20vw;
+    z-index: 10;
+    font-size: 6vh;
+    /*background-color: red;*/
+    width: 75vh;
+    padding-left: 8vh;
+    letter-spacing: 2vh;
+    font-weight: bolder;
+    color: rgba(255, 255, 0, 0.6);
+
+}
+.divform:before{
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: url("mundo.jpg");
+    background-size: cover;
+  filter: grayscale(100%);
+    z-index: -1;
+}
+/*.forma-contact{*/
+/*    background-color: red;*/
+/*}*/
+.contenedor-img{
+    position: relative;
+    width: 25%;
+}
+.cont-img{
+    position: absolute;
+    top: 4vh;
+    left: -100%;
+    height: 75vh;
+    border: 2px yellow solid;
+    filter: sepia(90%);
+    box-shadow: -5px 5px 15px 5px black;
+}
+.cont{
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px yellow solid;
+}
+::placeholder{
+    color: white;
+    opacity: .8;
+}
+.mail, .subj{
+    width: 230px;
+    height: 24px;
+    font-size: 16px;
+    font-weight: normal;
+    /*background-color: black;*/
+    color: white;
+
+
+}
+.messag{
+    height: 25%;
+    color: white;
+    font-size: 16px;
+    font-weight: normal;
+}
+.etiqueta{
+    font-size: 20px;
+}
+/*--------boton-----------*/
+
+
+.btn-contact {
+	position: relative;
+	margin: auto;
+	padding: 19px 22px;
+	transition: all .2s ease;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    /*color: white;*/
+    /*font-size: 36px;*/
+}
+
+.btn-contact:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	border-radius: 28px;
+	background: yellow;
+	width: 56px;
+	height: 56px;
+	transition: all .3s ease;
+}
+
+.btn-contact span {
+	position: relative;
+	font-size: 24px;
+	line-height: 18px;
+	font-weight: 900;
+	letter-spacing: 2px;
+	/*text-transform: uppercase;*/
+	vertical-align: middle;
+}
+
+.btn-contact svg {
+	position: relative;
+	top: 0;
+	margin-left: 10px;
+	fill: none;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke: #111;
+	stroke-width: 2;
+	transform: translateX(-5px);
+	transition: all .3s ease;
+}
+
+.btn-contact:hover:before {
+	width: 100%;
+	background: yellow;
+}
+
+.btn-contact:hover svg {
+	transform: translateX(0);
+}
+
+.btn-contact:active {
+	transform: scale(0.96);
+}
+/*------------------fin contact-------------*/

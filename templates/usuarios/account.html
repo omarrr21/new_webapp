@@ -1,0 +1,53 @@
+{% extends 'comunes/layout.html' %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'registrados/estilo.css' %}">
+{% endblock %}
+{% block titulo %}
+    Account
+{% endblock %}
+{% block body %}
+    <div class="ghost titulo-acc">Información de la cuenta</div>
+{#    <h2 class="titulo-acc">Información de la cuenta</h2>#}
+    <div class="user">
+        <div class="image"><img src="{{ data.photo.url }}" alt="" class="imagen"></div>
+        <div class="data">
+            <table>
+                <tr>
+                    <td><b>Name:</b></td>
+                    <td>{{ data.name }}</td>
+                </tr>
+                <tr>
+                    <td><b>Last Name:</b></td>
+                    <td>{{ data.last_name }}</td>
+                </tr>
+                <tr>
+                    <td><b>Email:</b></td>
+                    <td>{{ data.email }}</td>
+                </tr>
+                <tr>
+                    <td><b>Gender:</b></td>
+                    <td id="gender">{{ data.gender }}</td>
+                </tr>
+                <tr>
+                    <td><b>Birth:</b></td>
+                    <td id="birth">{{ data.date_birth }}</td>
+                </tr>
+                <tr>
+                    <td><b>Registered:</b></td>
+                    <td>{{ data.date_reg }}</td>
+                </tr>
+                <tr>
+                    <td><b>Last Modification:</b></td>
+                    <td>{{ data.last_mod }}</td>
+                </tr>
+            </table>
+
+        </div>
+
+    </div>
+    <div class="boxbutton"><a href="{% url 'usuarios_app:update-all' data.id %}" class="btn btn-one"><span>editar</span></a></div>
+
+
+    <script src="{% static 'registrados/account.js' %}"></script>
+{% endblock %}

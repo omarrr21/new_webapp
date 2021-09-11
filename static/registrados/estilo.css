@@ -1,0 +1,469 @@
+/*------------------inicio pagina account-------------------------*/
+.user {
+    display: flex;
+    margin: 0 40px 0 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+}
+
+.titulo-acc {
+    display: flex;
+    padding-left: 30vw;
+    font-size: xx-large;
+    align-items: flex-end;
+    color: white;
+
+}
+.imagen {
+    width: 35vw;
+    max-height: 70vh;
+}
+.image {
+    display: flex;
+}
+.data {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    font-size: large;
+}
+.data table {
+    width: 50vw;
+    height: 100%;
+    border-collapse: collapse;
+    color: white;
+    margin-left: 30px;
+}
+td {
+    width: 10vw;
+    border-bottom: #2c5a17 solid 1px;
+    border-top: #2c5a17 solid 1px;
+}
+td + td {
+    width: auto;
+}
+
+/*inicio boton editar*/
+.boxbutton {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    text-decoration: none;
+    line-height: 50px;
+    height: 50px;
+    text-align: center;
+    width: 250px;
+    cursor: pointer;
+    margin: 10px;
+    font-size: 24px;
+}
+
+.btn-one {
+    color: #FFF;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.btn-one span {
+    transition: all 0.3s;
+}
+
+.btn-one::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.3s;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-top-color: rgba(255, 255, 255, 0.5);
+    border-bottom-color: rgba(255, 255, 255, 0.5);
+    transform: scale(0.1, 1);
+}
+
+.btn-one:hover span {
+    letter-spacing: 2px;
+}
+
+.btn-one:hover::before {
+    opacity: 1;
+    transform: scale(1, 1);
+}
+
+.btn-one::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: all 0.3s;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn-one:hover::after {
+    opacity: 0;
+    transform: scale(0.1, 1);
+}
+
+/*------------------fin pagina account-------------------------*/
+/*------------------inicio pagina update all-------------------------*/
+.em-upd-fm, .nam-upd-fm, .lastn-upd-fm, .count-upd-fm, .myDateClass {
+    height: 40px;
+    margin-left: 15px;
+    padding-left: 5px;
+    border: #1b4e00 solid 2px;
+    border-radius: 5px;
+    background-color: #1c1c1c;
+    color: white;
+}
+
+.nam-upd-fm {
+    margin-left: 50px;
+}
+
+.em-upd-fm {
+    width: 220px;
+    margin-left: 45px;
+}
+
+.lastn-upd-fm {
+    width: 220px;
+}
+
+#id_gender {
+    width: 120px;
+    height: 40px;
+    padding-left: 5px;
+    margin-left: 38px;
+    border: #1b4e00 solid 2px;
+    border-radius: 5px;
+    background-color: #1c1c1c;
+    color: white;
+}
+
+#id_photo {
+    visibility: hidden;
+}
+
+.boxf {
+    display: flex;
+    width: 40vw;
+    padding-left: 20px;
+    align-items: center;
+}
+
+.updbox {
+    width: 100%;
+    height: 80px;
+}
+
+.box-content {
+    display: flex;
+    width: 80vw;
+    height: 80vh;
+    max-height: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px 0;
+    align-content: space-between;
+    flex-wrap: wrap;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.buttonn {
+    position: relative;
+    margin-left: 20px;
+    transform-style: preserve-3d;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.face1, .face2 {
+    display: flex;
+    background-color: #1c1c1c;
+    height: 44px;
+    width: 120px;
+    justify-content: center;
+    font-size: large;
+    align-items: center;
+    border: white solid 2px;
+}
+
+.face1 {
+    transform: translate3d(0, 0, 22px);
+    transition: .5s;
+    z-index: 10;
+}
+
+.face2 {
+    position: absolute;
+    font-size: x-large;
+    transform: rotateX(-90deg) translate3d(0, 0, -22px);
+}
+
+.buttonn:hover {
+    transform: rotateX(90deg);
+}
+
+.updbutton {
+    position: relative;
+    left: 45%;
+    border-radius: 4px;
+    background-color: #ffffff;
+    border: none;
+    color: #000000;
+    text-align: center;
+    font-size: 24px;
+    padding: 15px 20px;
+    width: 150px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.updbutton span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.updbutton span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.updbutton:hover span {
+    padding-right: 25px;
+}
+
+.updbutton:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.updbutton:hover {
+    background-color: #173101;
+    color: white;
+    border: white solid 1px;
+}
+
+/*------------------fin pagina update all-------------------------*/
+/*------------------------inicio de login---------------------------*/
+.loginsc {
+    position: relative;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    background: linear-gradient(315deg, #f32b2b, #76fc02);
+    justify-content: space-between;
+}
+
+.loginform {
+    display: flex;
+    width: 50%;
+    min-width: 520px;
+    height: calc(100vh - 60px);
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.loginimg {
+    display: flex;
+    width: 50%;
+    min-width: 520px;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+.imglog {
+    position: relative;
+    margin-left: auto;
+    max-height: calc(100vh - 60px);
+    max-width: 50vw;
+}
+
+.group {
+    position: relative;
+    margin-bottom: 45px;
+    background-color: green;
+}
+
+.log-inpt {
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 300px;
+    border: none;
+    border-bottom: 1px solid #757575;
+}
+
+.log-inpt:focus {
+    outline: none;
+}
+
+/* LABEL ======================================= */
+.name {
+    color: #050505;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+/* active state */
+.log-inpt:focus ~ .name {
+    top: -20px;
+    font-size: 18px;
+    color: #5264AE;
+}
+
+/* BOTTOM BARS ================================= */
+.bar {
+    position: relative;
+    display: block;
+    width: 300px;
+}
+
+.bar:before, .bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: #5264AE;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.bar:before {
+    left: 50%;
+}
+
+.bar:after {
+    right: 50%;
+}
+
+/* active state */
+.log-inpt:focus ~ .bar:before, .log-inpt:focus ~ .bar:after {
+    width: 50%;
+}
+/* HIGHLIGHTER ================================== */
+.highlight {
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+/* active state */
+.log-inpt:focus ~ .highlight {
+    -webkit-animation: inputHighlighter 0.3s ease;
+    -moz-animation: inputHighlighter 0.3s ease;
+    animation: inputHighlighter 0.3s ease;
+}
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+@-moz-keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+@keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+.log-button{
+    height: 30px;
+    border-style: none none none none;
+    transition: .3s;
+    font-size: 20px;
+    background: none;
+}
+.log-button:after{
+    content: "";
+    position: absolute;
+    background-color: black;
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: 0;
+    transition: .3s;
+}
+.log-button:hover:after{
+    width: 60px;
+}
+.log-button:hover{
+    font-size: 24px;
+}
+.estilohov{
+    position: relative;
+}
+/*.forma{*/
+/*    width: 600px;*/
+/*    !*font-size: 40px;*!*/
+/*    font-weight: bolder;*/
+/*}*/
+@media screen and (max-width: 1040px){
+    .imglog{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .name{
+        font-size: 38px;
+    }
+    .log-button{
+        font-size: 40px;
+    }
+    .log-inpt{
+        height: 50px;
+        width: 400px;
+    }
+}
+/*------------------------fin de login---------------------------*/

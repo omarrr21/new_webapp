@@ -1,0 +1,48 @@
+{% extends 'comunes/layout.html' %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'indic/estiloindic.css' %}">
+{% endblock %}
+{% block titulo %}
+Contact
+{% endblock %}
+{% block body %}
+{#    <div class="ghost"></div>#}
+    <div class="cuadrobg">
+    <div class="divform">
+
+        <form action="" method="post" class="forma-contact">
+    {% csrf_token %}
+        {% for foo in form %}
+        {% for error in foo.errors %}
+        <p>{{ error }}</p>
+        {% endfor %}
+
+        {% endfor %}
+
+    <p class="etiqueta">{{ form.email.label }}&nbsp&nbsp<i class="bi bi-envelope-fill"></i></p>
+        <p>{{ form.email }}</p>
+        <p class="etiqueta">{{ form.subject.label }}</p>
+        <p>{{ form.subject }}</p>
+        <p class="etiqueta">{{ form.message.label }}&nbsp&nbsp<i class="bi bi-chat-left-text-fill"></i></p>
+        <p>{{ form.message }}</p>
+
+
+{#        <button type="submit" class="btn-contact">Send &nbsp<i class="bi bi-arrow-up-right-circle-fill"></i></button>#}
+        <button type="submit" class="btn-contact"><span>Send</span>
+  <svg width="13px" height="10px" viewBox="0 0 13 10">
+    <path d="M1,5 L11,5"></path>
+    <polyline points="8 1 12 5 8 9"></polyline>
+  </svg></button>
+    </form>
+
+    </div>
+
+    <div class="contenedor-img">
+        <div class="tit-volt">CONTACT US</div>
+        <img src="{% static 'indic/captura.PNG' %}" alt="" class="cont-img">
+    </div>
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'comunes/layout.html' %}
+
+{% block titulo %}
+verificacion
+{% endblock %}
+{% block body %}
+    <div class="ghost"></div>
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+        <button type="submit">verificar</button>
+    </form>
+{% endblock %}

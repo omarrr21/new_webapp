@@ -1,0 +1,61 @@
+{% extends 'comunes/layout.html' %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'crono/crono_est.css' %}">
+{% endblock %}
+{% block titulo %}
+    StopWatch
+{% endblock %}
+{% block body %}
+{#    <div class="ghost"></div>#}
+    <div class="rj_lateral" id="lateral">
+        <ul class="lateral_list">
+            <li class="lat_item">
+                <a href="{% url 'crono_app:reloj' %}" class="world_t">
+                    <span id="world_t">
+                        <i class="bi bi-globe2"></i></span>
+                </a>
+            </li>
+
+            <li class="lat_item">
+                <a href="{% url 'crono_app:cronometro' %}" class="stop_w">
+                    <span id="stop_w">
+                        <i class="bi bi-stopwatch-fill"></i>
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="crono_total">
+        <h1>cronometro</h1>
+
+
+        <div class="crono">
+            <p id="tiempo"><span class="big_number" id="big_number">00:00:00</span><span class="small_number"
+                                                                                 id="small_number">.000</span></p>
+            <input type="button" id="iniciar" value="iniciar" class="buttn">
+            <input type="button" id="parar" value="parar" class="buttn escondido">
+            <input type="button" id="reset" value="reset" class="buttn">
+            <input type="button" id="vuelta_btn" value="vuelta" class="buttn escondido">
+        </div>
+        <div id="vueltas" class="vueltas escondido">
+            <table id="tabla_vlt">
+                <tr>
+                    <th>
+                        Lap
+                    </th>
+                    <th>
+                        Lap time
+                    </th>
+                    <th>
+                        Total time
+                    </th>
+                </tr>
+
+
+            </table>
+        </div>
+
+    </div>
+    <script src="{% static 'crono/crono_js.js' %}"></script>
+{% endblock %}

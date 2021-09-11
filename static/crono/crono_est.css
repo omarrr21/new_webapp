@@ -1,0 +1,83 @@
+@font-face {
+    font-family: Digit_black;
+    src: url("digital_7.ttf");
+}
+.big_number{
+    font-size: 128px;
+    font-family: Digit_black, monospace;
+
+}
+.small_number{
+    font-size: 78px;
+    font-family: Digit_black,monospace;
+}
+.escondido{
+    display: none;
+}
+.crono_total{
+    min-height: calc(100vh - 60px);
+    text-align: center;
+    width: calc(100% - 70px);
+    margin-left: 70px;
+    padding-top: 150px;
+
+}
+.crono{
+    width: 100%;
+    text-align: center;
+}
+.vueltas{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+/*-----------------------------inicio reloj------------------------------*/
+.world_t, .stop_w{
+    text-decoration: none;
+    color: white;
+    font-size: 36px;
+}
+
+.rj_lateral{
+    display: flex;
+    position: fixed;
+
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 70px;
+    background-color: black;
+    z-index: 1;
+    transition: .5s;
+}
+.lateral_list{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    list-style: none;
+    /*background-color: blue;*/
+    align-content: center;
+    padding: 0;
+    /*transition:width 2s;*/
+    /*transition:width ease-out 1s;*/
+}
+.rj_lateral:hover{
+    width: 150px;
+    /*transition:ease-in-out 2s;*/
+}
+.lat_item{
+    display: flex;
+    width: 100%;
+    height: 100px;
+    background-color: #0f2600;
+    color: white;
+    align-items: center;
+    padding-left: 20px;
+}
+.rj_contenido{
+    height: 100vh;
+    width: calc(100% - 70px);
+    margin-left: 70px;
+    background-color: green;
+}
+/*-----------------------------fin reloj------------------------------*/

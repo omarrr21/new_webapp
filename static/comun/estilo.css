@@ -1,0 +1,371 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Oswald:wght@600&family=Poppins:wght@600&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    color: white;
+    background: linear-gradient(315deg, #000000, #173101);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    min-height: 100vh;
+}
+/*------------------------inicio de cabecera---------------------------*/
+.cabeza{
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    justify-content: space-between;
+    align-content: center;
+    min-width: 340px;
+    padding: 0 5px;
+    background-color: rgba(255, 255, 255, 0);
+    transition: background-color 2s;
+    height: 60px;
+    z-index: 500;
+}
+.cab-scroll{
+    background-color: black;
+    transition: 2s;
+}
+
+.titulo{
+    font-size: x-large;
+    font-family: 'Oswald', sans-serif;
+/*    para alinear el elemento solo se puede user align-self*/
+}
+.exordium{
+    text-decoration: none;
+    color: white;
+}
+.menudesp{
+    display: inline-block;
+    padding: 0 10px;
+}
+#btn-menu{
+    display: none;
+}
+.lab-menu{
+    position: relative;
+    top: 5px;
+	color: white;
+	font-size: 40px;
+	cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+.titl-menu{
+    display: flex;
+    align-items: start;
+    line-height: 0;
+}
+.short-list{
+    display: flex;
+    list-style: none;
+    align-items: center;
+    margin-top: 5px;
+    height: 50px;
+    margin-right: 25px;
+}
+.li-button{
+    border-radius: 5px;
+    padding: 0 3px;
+    color: white;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin: 5px 5px;
+    font-weight: bold;
+    font-size: small;
+    font-family: 'Poppins', sans-serif;
+    transition: 1s;
+}
+.li-button:hover{
+    background-color: white;
+    color: black;
+}
+.account{
+    margin: 0;
+    cursor: pointer;
+}
+#btn-list{
+	display: none;
+}
+.desp{
+    display: flex;
+    text-decoration: none;
+    font-size: medium;
+    font-weight: normal;
+    margin: 0;
+    height: 35px;
+    width: 140px;
+    padding-left: 5px;
+    align-items: center;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+.desp:hover{
+    background-color: white;
+    border: black solid 1px;
+    color: black;
+    text-decoration: underline black;
+}
+.micro-list{
+    display: none;
+    list-style: none;
+    align-items: center;
+    position: absolute;
+    right: 25px;
+    top:54px;
+    background-color: rgba(28, 28, 28, 0.98);
+    padding: 0;
+    border-radius: 5px;
+}
+.micro-list li{
+    display: flex;
+    margin: 0;
+}
+#btn-list:checked + .micro-list{
+	display: block;
+}
+.logred{
+    transition: 1s;
+}
+.logred:hover{
+    color: red;
+    border: red solid 2px;
+    font-size: large;
+    font-weight: bold;
+}
+.ghost{
+    height: 60px;
+}
+.contenedor-menu{
+    position: fixed;
+	background: rgba(0,0,0,0.5);
+	width: 100%;
+	height: 100vh;
+	top: 0;
+    left: 0;
+	transition: all 500ms ease;
+	opacity: 0;
+	visibility: hidden;
+}
+#btn-menu:checked ~ .contenedor-menu{
+	opacity: 1;
+	visibility: visible;
+}
+.cont-menu{
+    display: flex;
+	width: 70%;
+	background: #1c1c1c;
+	height: 100vh;
+	position: fixed;
+    top: 0;
+	transform: translateX(-100%);
+    justify-content: center;
+}
+#btn-menu:checked ~ .contenedor-menu .cont-menu{
+    transition: all 500ms ease;
+	transform: translateX(0%);
+}
+.lista-desp{
+    list-style: none;
+    margin-top: 23vh;
+}
+.cont-menu label{
+	position: absolute;
+	right: 5px;
+	top: 10px;
+	color: #fff;
+	cursor: pointer;
+	font-size: 18px;
+}
+/*-------botones lista desplegable-----------*/
+.link2{
+    position: relative;
+    display: flex;
+    text-decoration: none;
+    color: white;
+    height: 50px;
+    margin: 20px 10px;
+    justify-content: center;
+    align-items: center;
+    transition: .5s;
+}
+.link2:after{
+    position: relative;
+    content: "";
+    height: 3px;
+    width: 0;
+    left: 10px;
+    background-color: greenyellow;
+    transition: .5s;
+}
+.link2:hover:after{
+    width: 60px;
+}
+.link2:before{
+    position: relative;
+    right: 10px;
+    content: "";
+    height: 3px;
+    width: 0;
+    background-color: greenyellow;
+    transition: .5s;
+}
+.link2:hover:before{
+    width: 60px;
+}
+.link2:hover{
+    letter-spacing: 10px;
+    font-size: 24px;
+    transform: translateY(-10px);
+    color: greenyellow;
+}
+/*------------------------fin de cabecera---------------------------*/
+/*------------------------inicio de footer---------------------------*/
+.piepagina{
+    display: flex;
+    margin: 100px 0 0 0;
+    padding-right: 10px;
+    justify-content: space-between;
+    width: 100%;
+    height: 200px;
+
+    /*background-color: white;*/
+}
+.logo{
+    z-index: 99;
+}
+.imgpeq{
+
+    height: 200px;
+}
+.divcont{
+    display: flex;
+    align-items: center;
+}
+.contact{
+    height: 150px;
+    width: 600px;
+    padding-left: 80px;
+    border-radius:5px ;
+    color: white;
+    /*background: linear-gradient(315deg, #8ac972, #FFFFFFFF);*/
+    background-color: rgba(255, 255, 255, 0.3);
+}
+.redes{
+    display: flex;
+    flex-wrap: wrap;
+    width: 200px;
+    justify-content: center;
+    margin-right: 40px;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow:0 0 10px 5px white inset, 0 0 0 white;
+    transition: .5s;
+}
+.redes:hover{
+    /*box-shadow: 0 0 0 white inset, 0 0 10px 5px white;*/
+    box-shadow: none;
+    background-color: rgba(255, 255, 255, 0.95);
+}
+.socialtitle{
+    margin: 20px 0 0 0;
+    height: 20px;
+    width: 100%;
+    text-align: center;
+}
+.iconosoc{
+    display: flex;
+    width: 90px;
+    height: 80px;
+    align-items: center;
+    justify-items: center;
+    font-size: 36px;
+}
+.fbk, .gith, .twtt, .lnk{
+    margin-left: auto;
+    margin-right: auto;
+    transition: .5s;
+
+}
+.fbk:hover{
+    color: #3b5998;
+    font-size: 48px;
+}
+.twtt:hover{
+    color: #1DA1F2;
+    font-size: 48px;
+}
+.lnk:hover{
+    color: #2867B2;
+    font-size: 48px;
+}
+.gith:hover{
+    font-size: 48px;
+}
+
+.contacbut {
+	position: relative;
+	padding: 10px 5px;
+	font-size: 1.4rem;
+    font-weight: bold;
+	color: #fff;
+	letter-spacing: 5px;
+	/*text-transform: uppercase;*/
+	transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+	cursor: pointer;
+	user-select: none;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.contacbut:before, .contacbut:after {
+    top: 0;
+	width: 0;
+	height: 100%;
+	content: '';
+	position: absolute;
+	transition: inherit;
+	z-index: -1;
+}
+.contacbut:before {
+	right: 0;
+	border: 1px solid #fff;
+	border-left: 0;
+	border-right: 0;
+}
+.contacbut:after {
+	left: 0;
+}
+
+
+.contacbut:hover {
+	color: #96B7C4;
+	transition-delay: .5s;
+}
+
+.contacbut:hover:before {
+	transition-delay: 0s;
+    width: 100%;
+}
+.contacbut:before {
+	right: 0;
+	border: 1px solid #fff;
+	border-left: 0;
+	border-right: 0;
+}
+
+
+.contacbut:hover:after {
+	background: #fff;
+	transition-delay: .35s;
+    width: 100%;
+}
+/*------------------------fin de footer---------------------------*/

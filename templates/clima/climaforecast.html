@@ -1,0 +1,246 @@
+{% extends 'comunes/layout.html' %}
+{% load static %}
+{% block head %}
+
+    <script>
+        let activado = 'False';
+        {% if wh %}
+            activado = 'True';
+            let clima ={{ wh|safe }};
+        {% endif %}
+    </script>
+{#    IMPLEMENTACION LEAFLET (MAPA)#}
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="{% static 'clima/leaflet-openweathermap.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'clima/leaflet-openweathermap.css' %}">
+
+
+       <link rel="stylesheet" href="{% static 'clima/clima_sheet.css' %}">
+{% endblock %}
+{% block titulo %}
+    Weather
+{% endblock %}
+{% block body %}
+    <div class="ghost"></div>
+    <div class="busqu-cont">
+        <form method="post">
+            {% csrf_token %}
+            <label for="id_busqueda_clima">City:</label>
+            <input type="text" placeholder="i.e Lima, Peru" id="id_busqueda_clima" name="busqueda_clima" required>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+    {# -------------------------------------------parte de prueba-------------------------------------------------------#}
+
+    <script type="text/javascript" src="{% static 'clima/canvasjs.min.js' %}"></script>
+    {% if wh %}
+
+        <div class="aea">
+
+            <div class="actual">
+                <div class="big_actual">
+                    <div class="bg_actual_data">
+                        <p>{{ name }}</p>
+                        Date: <span class="actual_3"></span> <br> <br>
+                        temperature: <br> <span class="bg_actual_temp">{{ wh.current.temp }}°C</span> <br>Feels
+                        like: {{ wh.current.feels_like }}°C
+                    </div>
+                    <img src="http://openweathermap.org/img/wn/{{ wh.current.weather.0.icon }}@2x.png"
+                         alt="{{ wh.current.weather.icon|safe }}" class="bg_actual_img">
+                </div>
+                <div class="info_actual">timezone: {{ wh.timezone }} <br>UTC TIME: <span id="time_offset"></span></div>
+
+                <div class="info_actual">Pressure: {{ wh.current.pressure }}<br>Humidity:{{ wh.current.humidity }}%
+                    <br>Dew point: {{ wh.current.dew_point }}°C
+                </div>
+                <div class="info_actual">Clouds:{{ wh.current.clouds }}% <br>UV level:{{ wh.current.uvi }}<br>
+                    visibility:{{ wh.current.visibility }} mts
+                </div>
+                <div class="info_actual">Wind speed: {{ wh.current.wind_speed }}m/s <br>Wind
+                    direction: {{ wh.current.wind_deg }}°
+                </div>
+                {% if wh.current.snow.1h %}
+                    <div class="info_actual">Snow last hour: {{ wh.current.snow.1h }} mm</div>
+                {% endif %}
+                {% if wh.current.rain.1h %}
+                    <div class="info_actual">Rain last hour: {{ wh.current.rain.1h }} mm</div>
+                {% endif %}
+
+
+                <div class="info_actual">Sunrise: <span class="actual_3"></span> <br> Sunset: <span
+                        class="actual_3"></span></div>
+            </div>
+
+            <div class="cnt2">
+                <div id="chartContainer2" style="height: 100%; max-width: 100%; margin: 0 auto;"></div>
+            </div>
+
+            <div class="wid_completo">
+                <div class="menu-wrapper hidden" id="menu_wrapper">
+                    <ul class="menu">
+                        <li class="item">Mon, Aug 11</li>
+                        <li class="item">Mon, Aug 12</li>
+                        <li class="item">Mon, Aug 13</li>
+                        <li class="item">Mon, Aug 14</li>
+                        <li class="item">Mon, Aug 15</li>
+                        <li class="item">Mon, Aug 16</li>
+                        <li class="item">Mon, Aug 17</li>
+                        <li class="item">Mon, Aug 18</li>
+
+                    </ul>
+
+                    <div class="paddles">
+                        <button class="left-paddle paddle hidden">
+                            <<
+                        </button>
+                        <button class="right-paddle paddle">
+                            >>
+                        </button>
+                    </div>
+                </div>
+                <div class="menu_vertical" id="menu_vertical">
+                    <ul class="vertical_lista">
+                        <li class="item_vert"><span class="date_vert"></span><span>
+                        <span class="temp_vert"></span>&nbsp&nbsp<i
+                                class="bi bi-thermometer-snow"></i> / <i class="bi bi-thermometer-sun"></i></span>
+                            <span
+                                    class="descrip"></span></li>
+                        <li class="item_vert"><span class="date_vert"></span><span>
+                        <span class="temp_vert"></span>&nbsp&nbsp<i
+                                class="bi bi-thermometer-snow"></i> / <i class="bi bi-thermometer-sun"></i></span>
+                            <span
+                                    class="descrip"></span></li>
+                        <li class="item_vert"><span class="date_vert"></span><span>
+                        <span class="temp_vert"></span>&nbsp&nbsp<i
+                                class="bi bi-thermometer-snow"></i> / <i class="bi bi-thermometer-sun"></i></span>
+                            <span
+                                    class="descrip"></span></li>
+                        <li class="item_vert"><span class="date_vert"></span><span>
+                        <span class="temp_vert"></span>&nbsp&nbsp<i
+                                class="bi bi-thermometer-snow"></i> / <i class="bi bi-thermometer-sun"></i></span>
+                            <span
+                                    class="descrip"></span></li>
+                        <li class="item_vert"><span class="date_vert"></span><span>
+                        <span class="temp_vert"></span>&nbsp&nbsp<i
+                                class="bi bi-thermometer-snow"></i> / <i class="bi bi-thermometer-sun"></i></span>
+                            <span
+                                    class="descrip"></span></li>
+                        <li class="item_vert"><span class="date_vert"></span><span>
+                        <span class="temp_vert"></span>&nbsp&nbsp<i
+                                class="bi bi-thermometer-snow"></i> / <i class="bi bi-thermometer-sun"></i></span>
+                            <span
+                                    class="descrip"></span></li>
+                        <li class="item_vert"><span class="date_vert"></span><span>
+
+                        <span class="temp_vert"></span>&nbsp&nbsp<i
+                                class="bi bi-thermometer-snow"></i> / <i class="bi bi-thermometer-sun"></i></span>
+                            <span
+                                    class="descrip"></span></li>
+                        <li class="item_vert"><span class="date_vert"></span><span>
+                        <span class="temp_vert"></span>&nbsp&nbsp<i
+                                class="bi bi-thermometer-snow"></i> / <i class="bi bi-thermometer-sun"></i></span>
+                            <span
+                                    class="descrip"></span></li>
+                    </ul>
+                </div>
+
+                <div class="contenido hidden" id="contenido_div">
+
+                    <div class="cont_inter fase_lunar">
+                        <p>Moon Phase: <span class="info">cuarto menguane</span></p>
+                    </div>
+                    <div class="cont_inter descripcion">
+                        <p>Date : <span class="info"> fecha</span></p><br>
+                        <p>Description: <span class="info">desc</span></p>
+                    </div>
+                    <div class="cont_inter icono_clima" id="icono_clima">
+                        {#            <span>icono</span>#}
+                    </div>
+
+                    <div class="cont_inter tabla_tem">
+                        <table>
+                            <tr>
+                            <th></th>
+                            <th>morning</th>
+                            <th>evening</th>
+                            <th>day</th>
+                            <th>night</th>
+                            </tr>
+                            <tr>
+                                <td>feels like</td>
+                                <td><span class="tabla_info"> 12</span>°C</td>
+                                <td><span class="tabla_info"> 12</span>°C</td>
+                                <td><span class="tabla_info"> 12</span>°C</td>
+                                <td><span class="tabla_info"> 12</span>°C</td>
+                            </tr>
+                            <tr>
+                                <td>temperature</td>
+                                <td><span class="tabla_info"> 12</span>°C</td>
+                                <td><span class="tabla_info"> 12</span>°C</td>
+                                <td><span class="tabla_info"> 12</span>°C</td>
+                                <td><span class="tabla_info"> 12</span>°C</td>
+                            </tr>
+
+                        </table>
+                        <div> the max temperature will be <span class="info">45</span> °C<br><br>
+                            the minimun will be <span class="info"> clse</span> °C
+                        </div>
+                    </div>
+                    <div class="cont_inter presion" id="validate">
+                        <p>presion:<br> <span class="info"></span> <b>hPa</b></p>
+                        <p>humidity:<br> <span class="info"></span><b>%</b></p>
+                        <p>dew point:<br> <span class="info"></span><b>°C</b></p>
+                        <p>wind speed:<br> <span class="info"></span><b>m/s</b></p>
+                        <p>wind direction:<br> <span class="info"></span><b>°</b></p>
+                    </div>
+                    <div class="cont_inter clouds" id="cont4">
+                        <p>clouds: <span class="info"></span>% prob. precipitation:
+                            <span class="info"></span>% <br> uv: <span class="info"></span></p>
+                        {#                    {% if wh.hourly.rain %}#}
+                        <p>rain: <span class="rain_span" id="rain_span"></span> mm of rain</p>
+                        {#                    {% endif %}#}
+                        {#                    {% if wh.hourly.snow %}#}
+                        <p>snow: <span class="snow_span" id="snow_span"></span> mm of snow</p>
+                        {#                    {% endif %}#}
+                        <div class="hidden" id="validation"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="cnt1">
+                <div id="chartContainer1" style="width: 100%;"></div>
+            </div>
+
+{#        <div class="content_daily">#}
+{#            <div class="menu_daily">#}
+{#                #}
+{#            </div>#}
+{#            <div class="content_daily_inner">#}
+{##}
+{#            </div>#}
+{#        </div>#}
+{#        <div class="multi_chart">#}
+{#            <div class="chart_multiple" id="chart_multiple"></div>#}
+{#        </div>#}
+        <div class="contenedor_multiple">
+        <div id="chart_Container1" class="chart_multi"></div>
+<div class="row">
+  <div class="col" id="chart_Container2"></div>
+  <div class="col" id="chart_Container3"></div>
+  <div class="col" id="chart_Container4"></div>
+</div>
+        </div>
+
+        <div id="map" class="mapa_inter"></div>
+        </div>
+
+    {% endif %}
+
+{#    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>#}
+    <script type="text/javascript" src="{% static 'clima/myscript.js' %}"></script>
+<div>
+añadir hora local del lugar buscado <br>
+tema activado para la lista superior de la informacion diaria
+
+</div>
+{% endblock %}

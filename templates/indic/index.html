@@ -1,0 +1,40 @@
+{% extends 'comunes/layout.html' %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'indic/estiloindic.css' %}">
+{% endblock %}
+{% block titulo %}
+    Start
+{% endblock %}
+{% block body %}
+    <div class="fondo" id="fondo-pantalla">
+        {% if mensajes %}
+            <span class="mensaje-opt">{{ mensajes }}</span>
+        {% endif %}
+        <div class="index_menu">
+            <div class="index_menu_option">
+                <a href="{% url 'clima_app:clima' %}" class="index_link">
+                <span class="index_menu_icono">
+                <i class="bi bi-cloud-rain-heavy-fill"></i>
+                <i class="bi bi-thermometer-half"></i>
+                </span>
+                <p>Weather App</p></a>
+            </div>
+            <div class="index_menu_option">
+                <a href="{% url 'crono_app:cronometro' %}" class="index_link">
+                <span class="index_menu_icono">
+                <i class="bi bi-stopwatch-fill"></i>
+                <i class="bi bi-clock-fill"></i>
+                </span>
+                <p>Watch App</p></a>
+            </div>
+            <div class="index_menu_option"></div>
+            <div class="index_menu_option"></div>
+            <div class="index_menu_option"></div>
+            <div class="index_menu_option"></div>
+            <div class="index_menu_option"></div>
+        </div>
+    </div>
+    {#    <h2>{% lorem 10 %}</h2>#}
+    <script src="{% static 'indic/indicjs.js' %}"></script>
+{% endblock %}

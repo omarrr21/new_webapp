@@ -1,0 +1,325 @@
+/*--------------PRUEBAS--------------*/
+.space{
+    height: 200px;
+}
+
+.flx{
+    display: flex;
+    justify-content: center;
+}
+.frm{
+    width: 300px;
+}
+.aea{
+    display: flex;
+    position: relative;
+    margin: 40px auto;
+    background-color: rgb(255, 255, 255);
+    width: 80vw;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: center;
+
+}
+
+.big_actual{
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+}
+.actual{
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    background-color: #96B7C4;
+    justify-content: center;
+    /*align-content: center;*/
+
+}
+.bg_actual_img{
+    width: 30%;
+    min-width: 150px;
+}
+.bg_actual_data{
+    width: 70%;
+    font-size: 16px;
+}
+.bg_actual_data p{
+    font-size: 18px;
+}
+.bg_actual_temp{
+    font-size: 48px;
+    font-weight: bold;
+}
+.info_actual{
+    width: 200px;
+    height: 100px;
+    /*align-content: center;*/
+    align-items: center;
+    /*border: 3px black solid;*/
+}
+.cnt1{
+    /*grid-area: lat;*/
+    display: flex;
+    width: 10vw;
+    min-width: 265px;
+    height: 80vh;
+    min-height:600px ;
+    max-height: 800px;
+
+
+}
+.cnt2{
+    /*grid-area: ch1;*/
+    width: 34vw;
+    min-width: 531px;
+    height: 20vh;
+    min-height:200px ;
+}
+/*-------------------multiple chart----------------------*/
+.row{
+
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.col {
+    float: left;
+    width: 33.33%;
+    height: 150px;
+    margin-top: 10px;
+}
+.chart_multi{
+    height: 400px;
+    width: 100%;
+    margin-top: 15px;
+}
+.contenedor_multiple{
+    width: 100%;
+    min-width: 800px;
+}
+
+/*.cnt3{*/
+/*    !*grid-area: ch2;*!*/
+/*    width: 34vw;*/
+/*    min-width: 531px;*/
+/*    height: 20vh;*/
+/*    min-height:200px ;*/
+/*}*/
+
+/*---------------------INICIO WIDGET CLIMA DIARIO---------------------------*/
+
+.wid_completo{
+    position: relative;
+    margin: 3em 20px;
+    width: 616px;
+    height: 498px;
+    min-width: 516px;
+    min-height: 400px;
+    max-width: 1016px;
+    max-height: 800px;
+    /*border: 1px red solid;*/
+    color: black;
+}
+
+.menu-wrapper {
+	position: relative;
+    top: 0;
+    left: 0;
+    /*width: 100%;*/
+	width: 516px;
+	height: 38px;
+	margin: 0 auto;
+	/*border: 1px solid black;*/
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
+.menu	{
+	background: #f3f3f3;
+	box-sizing: border-box;
+	white-space: nowrap;
+	overflow-x: auto;
+	overflow-y: hidden;
+    margin: 0;
+    padding: 0;
+
+}
+.menu_vertical{
+    height: 100%;
+    width: 100%;
+}
+.vertical_lista{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+.item {
+    display: inline-block;
+    width: 100px;
+    /*width: calc((100% - 16px)/5);*/
+    height: 38px;
+    padding-top: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    align-items: center;
+    font-size: 14px;
+    cursor: pointer;
+	}
+.item:hover{
+    background-color: #c4c4c4;
+}
+
+
+
+.paddle {
+	position: absolute;
+	top: 9px;
+	/*bottom: 0;*/
+	width: 2.5em;
+    background-color: rgba(255, 255, 255, 0); /*60%*/
+    border-radius: 10px;
+    height: 20px;
+    align-self: center;
+    cursor: pointer;
+    /*border: 2px rgba(0, 0, 0, 0.3) solid;*/
+    border: none;
+    color: rgba(255, 255, 255, 0);
+
+}
+.paddle:hover{
+    background-color: rgba(199, 199, 199, 0.8);
+    color: black;
+    border: 2px rgba(0, 0, 0, 0.3) solid;
+
+}
+.left-paddle {
+	left: 0;
+}
+.right-paddle {
+	right: 0;
+}
+
+td{
+    width: 75px;
+}
+
+
+
+.item_vert{
+    display: flex;
+    /*height: 50px;*/
+    /*position: relative;*/
+    height: calc(100%*0.125);
+    width: 100%;
+    list-style: none;
+    /*text-align: center;*/
+    justify-content: space-around;
+    align-items: center;
+    background-color: #fff7f3;
+    outline: 1px solid gray;
+    cursor: pointer;
+    /*padding-top: 10px;*/
+
+}
+.item_vert:hover{
+    background-color: #dadada;
+}
+.date_vert{
+    font-size: 18px;
+}
+.temp_vert{
+    font-size: 14px;
+    color: #6e6e6e;
+}
+.descrip{
+    font-size: 12px;
+    color: #6e6e6e;
+}
+.contenido{
+    /*height: 360px;*/
+    display: flex;
+    flex-wrap: wrap;
+    height: calc(100% - 38px);
+    width: 100%;
+    /*background-color: grey;*/
+}
+p{
+    margin: 0;
+}
+
+/*   fase_lunar descripcion icono_clima min_max tabla_tem presion clouds*/
+.fase_lunar, .descripcion, .tabla_tem, .presion, .clouds{
+    padding: 5px;
+    margin: 0;
+    font-size: 16px;
+    /*font-weight: bold;*/
+}
+.info{
+    font-weight: bold;
+}
+.fase_lunar{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    /*background-color: red;*/
+}
+.descripcion{
+    width: 410px;
+    height: 100px;
+    /*background-color: green;*/
+}
+.icono_clima{
+    width: 100px;
+    height: 100px;
+    /*background-color: yellow;*/
+}
+/*.min_max{*/
+/*    width: 100px;*/
+/*    height: 50px;*/
+/*    background-color: blue;*/
+/*}*/
+.tabla_tem{
+    width: 450px;
+    height: 210px;
+    /*background-color: purple;*/
+    font-size: 16px;
+    font-weight: normal;
+    border-radius: 5px;
+    /*background-color: rgba(0, 0, 0, 0.1);*/
+
+}
+.tabla_tem table{
+    margin-bottom: 30px;
+    font-size: 12px;
+}
+.tabla_info{
+    font-size: 14px;
+}
+
+.presion{
+    width: 150px;
+    height: 210px;
+    /*background-color: orange;*/
+}
+.clouds{
+    height: 140px;
+    width: 410px;
+    /*background-color: blue;*/
+}
+.hidden {
+	display: none;
+}
+
+/*---------------------FIN WIDGET CLIMA DIARIO---------------------------*/
+.mapa_inter{
+    height: 65vh;
+    width: 50vw;
+    min-height: 500px;
+    min-width: 800px;
+    margin-top: 25px;
+}

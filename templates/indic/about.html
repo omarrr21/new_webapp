@@ -1,0 +1,29 @@
+{% extends 'comunes/layout.html' %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'indic/estiloindic.css' %}">
+{% endblock %}
+{% block titulo %}
+    About Us
+{% endblock %}
+{% block body %}
+    <div class="contenedor">
+        <div class="logotipo">
+            <img src="{% static 'indic/logoexordium.svg' %}" alt="" class="logo">
+        </div>
+        <div class="texto">
+            <p class="titulo-about">ABOUT EXORDIUM</p>
+            <p class="cuerpo-about">
+                This project starts from the simple idea of making a webpage, an online tool for my personal use and ended been
+                all of this, either a lot or a little this humble site has been built and designed from scratch, taking care of
+                every aspect, mesure and detail, from back to front-end applying everything I have learn in the last six months.
+                Exordium means start again, a new beginning after a bad time, life is about it and I see this like a new
+                start, again.
+            </p>
+            <div class="firma">
+                <span>designed & created by</span><br>
+                <span class="firma-about">Omar Ramirez.</span>
+            </div>
+        </div>
+    </div>
+{% endblock %}

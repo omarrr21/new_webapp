@@ -1,0 +1,43 @@
+{% extends 'comunes/layout.html' %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'registrados/estilo.css' %}">
+{% endblock %}
+
+{% block titulo %}
+Log in
+{% endblock %}
+{% block body %}
+    <div class="ghost"></div>
+    <div class="loginsc">
+    <div class="loginform">
+        <form method="post">
+    {% csrf_token %}
+            <div class="group">
+      {{ form.mail }}
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label class="name">Email</label>
+    </div>
+
+    <div class="group">
+      {{ form.passw }}
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label class="name">Password</label>
+    </div>
+{#    {{ form.as_p }}#}
+            <div class="estilohov">
+                <button type="submit" class="log-button">login</button>
+            </div>
+
+    </form>
+    </div>
+    <div class="loginimg">
+        <img src="{% static 'registrados/log-fondo.jpg' %}" alt="" class="imglog">
+    </div>
+    </div>
+
+{#    <h1>{% lorem 20 %}</h1>#}
+
+{% endblock %}

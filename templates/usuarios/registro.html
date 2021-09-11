@@ -1,0 +1,12 @@
+{% extends 'comunes/layout.html' %}
+{% block title %}
+Registro
+{% endblock %}
+{% block body %}
+    <div class="ghost"></div>
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+        <button type="submit">Create user</button>
+    </form>
+{% endblock %}
