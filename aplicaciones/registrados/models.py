@@ -17,11 +17,11 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
     gender=models.CharField('Gender', max_length=1,choices=GENDER_CHOICES,blank=True)
     date_birth=models.DateField('Date of Birth', blank=True,null=True)
     code_reg=models.CharField(max_length=6,blank=True)
-    photo=models.ImageField(upload_to='profile',default='default.png')
+    photo=models.ImageField(upload_to='profile',default='default.png',blank=True,null=True)
     is_staff=models.BooleanField(default=False)
     is_active = models.BooleanField(default=False)
     date_reg=models.DateField('Register Date', default=timezone.now)
-    last_mod=models.DateField('Last Modified', auto_now=True)
+    last_mod=models.DateField('Last Modified', auto_now=True) #debido al auto_now esto no se va a mostrar en el admin site, no es editable
     objects=Usuario_Mang()
 
     USERNAME_FIELD='email'

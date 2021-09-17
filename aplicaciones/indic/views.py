@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from django.views.generic import TemplateView,FormView
 from .forms import Contactform
+from django.urls import reverse_lazy
 
 # Create your views here.
 
@@ -13,6 +14,8 @@ class Index(TemplateView):
         if self.request.GET.get('mensajes',''):
             context['mensajes'] = self.request.GET.get('mensajes','')
         return context
+
+
 
 
 
@@ -31,3 +34,4 @@ class contacto(FormView):
         messag=form.cleaned_data['message']
         send_mail(asunt,messag+' '+mail,mail,['omarramirezq@hotmail.com',])
         return redirect('/?mensajes=mensaje+enviado')
+        # return reverse_lazy('indic_app:index',Kwargs={'mensajes':'mensaje enviado bien'})

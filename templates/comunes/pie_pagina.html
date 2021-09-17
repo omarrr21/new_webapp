@@ -1,0 +1,27 @@
+{% load static %}
+<div class="piepagina">
+
+    <div class="logo">
+        <img src="{% static 'indic/logoexordium.svg' %}" alt="" class="imgpeq">
+    </div>
+    <div class="divcont">
+        <div class="contact">
+            <h3>
+                Let's Comunicate
+            </h3>
+            <p style="margin-bottom: 16px;">
+                All change starts with a conversation
+            </p>
+            <a href="{% url 'indic_app:contacto' %}" class="contacbut">
+                Contact
+            </a>
+        </div>
+    </div>
+    <div class="redes">
+        <h4 class="socialtitle">Follow Us</h4>
+        <div class="iconosoc"><i class="bi bi-facebook fbk"></i></div>
+        <div class="iconosoc"><i class="bi bi-github gith"></i></div>
+        <div class="iconosoc"><i class="bi bi-twitter twtt"></i></div>
+        <div class="iconosoc"><i class="bi bi-linkedin lnk"></i></div>
+    </div>
+</div>

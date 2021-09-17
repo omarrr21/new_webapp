@@ -24,4 +24,5 @@ urlpatterns = [
     path('',include('aplicaciones.indic.urls',namespace='indic_app')),
     path('clima/',include('aplicaciones.clima.urls',namespace='clima_app')),
     path('stopwatch/', include('aplicaciones.crono.urls', namespace='crono_app')),
+    path('tweets/',include('aplicaciones.tweets.urls',namespace='tweets_app')),
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

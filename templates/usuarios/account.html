@@ -1,5 +1,6 @@
 {% extends 'comunes/layout.html' %}
 {% load static %}
+
 {% block head %}
     <link rel="stylesheet" href="{% static 'registrados/estilo.css' %}">
 {% endblock %}
@@ -10,7 +11,7 @@
     <div class="ghost titulo-acc">Información de la cuenta</div>
 {#    <h2 class="titulo-acc">Información de la cuenta</h2>#}
     <div class="user">
-        <div class="image"><img src="{{ data.photo.url }}" alt="" class="imagen"></div>
+        <div class="image"><img src="{% static 'comun/default.png' %}" alt="" class="imagen"></div>
         <div class="data">
             <table>
                 <tr>
